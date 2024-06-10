@@ -40,17 +40,13 @@ if __name__ == "__main__":
     epochs = config["epochs"]
     num_clients = config["num_clients"]
     test_batch_size = config["test_batch_size"]
-    current_time = config["current_time"]
 
     # 差分隐私
     clip = config["clip"]
     epsilon = config["epsilon"]
 
-    # 获取当前时间
-    if current_time == "" or current_time is None:
-        current_time = time.strftime("%Y-%m-%d-%H-%M", time.localtime(time.time()))
     # 创建保存目录
-    dir_name = f"{current_time}_model_{model}_dataset_{dataset}_lr_{lr}_clients_{num_clients}_seed_{seed}_epsilon_{epsilon}"
+    dir_name = f"model_{model}_dataset_{dataset}_lr_{lr}_clients_{num_clients}_seed_{seed}_epsilon_{epsilon}"
     model_dir = os.path.join(f"./saved/{dir_name}", "model")
     data_dir = os.path.join(f"./saved/{dir_name}", "data")
     if not os.path.exists(model_dir):
@@ -105,7 +101,7 @@ if __name__ == "__main__":
         test_acc_list.append(round(test_acc, 4))
         test_loss_list.append(test_loss)
 
-        save_path = f"{model_dir}/model_optimizers_state_round_{start_round}.pt"
+        save_path = f"{model_dir}/model_optimizers_state_round_{i}.pt"
         state = {
             "model_state": center_model.state_dict()
         }

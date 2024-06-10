@@ -16,7 +16,6 @@ iters: 100 # 总迭代次数
 epochs: 1 # 单个客户端训练周期
 num_clients: 10 # 客户端数量
 test_batch_size: 128 # 测试批量大小
-current_time: # 模型训练的开始时间（控制从中间轮次开始训练的模型路径）
 
 # 差分隐私
 clip: 10 # 梯度裁剪范围C
