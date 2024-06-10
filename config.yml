@@ -1,0 +1,26 @@
+# 数据集、模型
+device: cpu # 训练设备
+model: CNN # 训练模型
+dataset: MNIST # 数据集
+learning_rate: 0.01 # 学习率
+momentum: 0.9 # 动量
+
+# non-iid化（狄立克雷分布）
+alpha: 0.05 # 狄立克雷分布中的Alpha参数
+seed: 1 # 随机种子，保证实验可重现性
+q: 0.01 # 数据采样率
+
+# 训练条件
+start_round: 0 # 训练开始所在轮数
+iters: 100 # 总迭代次数
+epochs: 1 # 单个客户端训练周期
+num_clients: 10 # 客户端数量
+test_batch_size: 128 # 测试批量大小
+current_time: # 模型训练的开始时间（控制从中间轮次开始训练的模型路径）
+
+# 差分隐私
+clip: 10 # 梯度裁剪范围C
+epsilon: 0.005 # 隐私预算
+
+# 模型加载路径
+save_dir: ./saved_states
