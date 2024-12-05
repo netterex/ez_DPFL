@@ -1,3 +1,2 @@
 # ez_DPFL
-Differentially Private Federated Learning with Laplace Noise.
-Implement with Pytorch
+This project refactored and streamlined the code based on https://github.com/jjllzhang/DPFL4GraduateProject
